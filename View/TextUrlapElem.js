@@ -1,18 +1,22 @@
-class TextUrlapElem{
+export class TextUrlapElem {
     #key;
     #leiro;
-    #value="";
-    #valid=true;
-    constructor(key, leiro, szuloElem){
+    #value = "";
+    #valid = true;
+    constructor(key, leiro, szuloElem) {
         this.#key = key;
         this.#leiro = leiro;
         this.formElem = szuloElem;
         this.#textElem();
 
-        this.inputElem=$(`#${this.#key}`);
-        this.validElem=this.formElem.children("div:last-child").children(".valid");
-        this.invalidElem=this.formElem.children("div:last-child").children(".invalid");
-        this.inputElem.on("keyup", ()=>{
+        this.inputElem = $(`#${this.#key}`);
+        this.validElem = this.formElem
+            .children("div:last-child")
+            .children(".valid");
+        this.invalidElem = this.formElem
+            .children("div:last-child")
+            .children(".invalid");
+        this.inputElem.on("keyup", () => {
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
             let regObj = new RegExp(reg);
@@ -25,24 +29,26 @@ class TextUrlapElem{
                 this.invalidElem.removeClass("elrejt");
                 this.validElem.addClass("elrejt");
             }
-        })
+        });
     }
 
-    get valid(){
+    get valid() {
         return this.#valid;
     }
 
-    get value(){
+    get value() {
         return this.#value;
     }
 
-    get key(){
+    get key() {
         return this.#key;
     }
 
-    #textElem(){
-        let txt=`<div class="mb-3 mt-3">
-                <label for="${this.#key}" class="form-label">${this.#leiro.megjelenes}</label>
+    #textElem() {
+        let txt = `<div class="mb-3 mt-3">
+                <label for="${this.#key}" class="form-label">${
+            this.#leiro.megjelenes
+        }</label>
                 <input  type="${this.#leiro.tipus}" class="form-control" 
                         id="${this.#key}" 
                         placeholder="${this.#leiro.placeholder}" 
@@ -52,7 +58,6 @@ class TextUrlapElem{
                 <div class="valid elrejt">ok</div>
                 <div class="invalid elrejt">${this.#leiro.validalas}</div>
               </div>`;
-              this.formElem.append(txt);
+        this.formElem.append(txt);
     }
-
-} export default TextUrlapElem
+}

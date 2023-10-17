@@ -1,4 +1,4 @@
-export const URLAPLEIRO={
+export const URLAPLEIRO = {
     nev: {
         megjelenes: "Név",
         tipus: "text",
@@ -18,5 +18,5 @@ export const URLAPLEIRO={
             max: 2023,
         },
         validalas: "1000-2023",
-    }
-}
+    },
+};

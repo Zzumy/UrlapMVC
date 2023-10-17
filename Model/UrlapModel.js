@@ -1,13 +1,12 @@
 import { URLAPLEIRO } from "./urlapleiro.js";
 
-class UrlapModel{
-    #leiro={};
-    constructor(){
+export class UrlapModel {
+    #leiro = {};
+    constructor() {
         this.#leiro = URLAPLEIRO;
     }
 
-    get leiro(){
-        return { ...this.#leiro};
+    get leiro() {
+        return { ...this.#leiro };
     }
-
-} export default UrlapModel
+}
